@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="style.css" rel="stylesheet">
+    <title>Admin</title>
+        <link href="style.css" rel="stylesheet">
+        <script defer src="generalScript.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<center>
+</head>
+<body>
+    <div class = "title">
+        <h1>3DS FOR ADMIN</h1></div>
+    <h2 class = "page-subtitle">Camera Diagnostic</h2>
+    <button id="testbutton" class = "button2" data-modal-target="#modaltest" onclick="javascript:testCam();">Camera Test</button>
+    <div class="modal" id="modaltest">
+        <div class="modal-header">
+            <div class="title">Camera Test</div>
+            <button data-close-button class="closebtn">&times;</button>
+        </div>
+        <div class="popup-body">
+            <h class = "subsections">Camera Test</h>
+            <br></br>
+            <video id="videotest" width="320" height="240" autoplay></video><br></br>
+            <img src="../imgs/flashinglight.gif" style="width:20px;height:20px;"> 
+            <h style="font-weight: bold; font-size: 80%; position: relative; bottom: 5px; ">Active</h>
+        </div>
+    </div>
+
+    <br><br>
+    <h2 class = "page-subtitle">Ride Metrics History</h2>
+    <!-- table for showing data -->
+    <table class="tripsAll" id="tripsAll"></table><br>
+    <button class = "button2" onclick="location.href = '/settings'" class="button1" >Back</button>
+
+    <div>&nbsp;</div>
+
+    <a class = "agreement" data-modal-target="#modalversion">Version 1.0</a>
+    <div class="modal" id="modalversion">
+        <div class="modal-header">
+            <div class="title">System Version</div>
+            <button data-close-button class="closebtn">&times;</button>
+        </div>
+        <div>
+            <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="System is up to date." disabled>Update</button>
+            <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="No older version available." disabled>Revert Version</button>
+        </div>
+    </div>
+    
+</body>
+</center>
+
+
+</html>

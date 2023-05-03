@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Drowsiness Model</title>
+    <link href="style.css" rel="stylesheet">
+    <script defer src="generalScript.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <center>
+    <div class = "title">
+        <h1>3DS</h1></div>
+    <div><button id="startbtn" class="button1" onclick="javascript:drive();">Start Drive</button></div>
+    <div><button onclick="javascript:parkCar();location.href = '/park'" id="parkbtn" style="visibility: hidden" class="button1">Park Car</button></div>
+
+    <br><br>
+    <div>
+        <video id="video" width="320" height="240" autoplay></video>
+    </br>
+        <canvas id="canvas" width="320" height="240"></canvas>
+    </div>
+
+    <div  id="overlay"></div>
+
+    <!--<div><button onclick="location.href = '/settings'" id="settingsbtn" class="button1">Settings</button></div>-->
+    <br><br>
+    <div></div><i style="font-size:48px;" onclick="location.href = '/settings'" class="material-icons">settings</i></div>
+
+    <div>&nbsp;</div>
+
+    <div>
+        <div></div><button data-modal-target="#modal" id = "drivebtn" style="background-color:yellow; visibility: hidden" onclick="javascript:playWarning1(); start(); " >Low Warning</button></div>
+        <div></div><button data-modal-target="#modal2" id = "drivebtn2" style="background-color:orange; visibility: hidden" onclick="javascript:playWarning2(); start2(); ">Medium Warning</button></div>
+        <div></div><button data-modal-target="#modal3" id = "drivebtn3" style="background-color:red; visibility: hidden" onclick="javascript:playWarning3(); start3();">High Warning</button></div>
+       
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="title">Alert!</div>
+                <button data-close-button class="closebtn">&times;</button>
+            </div>
+            <div class="popup-body">
+                Drowsiness Level: Low<br><br>Rest soon. Drive later.<br><br> 
+            </div>
+        </div>
+        <div class="modal" id="modal2">
+            <div class="modal-header">
+                <div class="title">Alert!</div>
+                <button data-close-button class="closebtn">&times;</button>
+            </div>
+            <div class="popup-body">
+                Drowsiness Level: Medium<br><br>Rest first. Drive later.<br><br> 
+            </div>
+        </div>
+        <div class="modal" id="modal3">
+            <div class="modal-header">
+                <div class="title">Alert!</div>
+                <button data-close-button class="closebtn">&times;</button>
+            </div>
+            <div class="popup-body">
+                Drowsiness Level: High<br>Rest immediately. Drive later.<br><br>
+            </div>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+ 
+    <form style="color:lightblue;" name="timer" id="time">
+        <div>
+        <span id="minute">00</span>:<span id="second">00</span>
+        </div>
+    </form>
+    <form style="color:lightblue;"  name="timer2" id="time2">
+        <div>
+        <span id="minute2">00</span>:<span id="second2">00</span>
+        </div>
+    </form>
+    <form style="color:lightblue;" name="timer3" id="time3">
+        <div>
+        <span id="minute3">00</span>:<span id="second3">00</span>
+        </div>
+    </form>
+<!--
+    <div>
+        <button class="warning" id = "drivebtn" style="background-color:yellow; visibility: hidden" onclick="javascript:playWarning1(); start();" >Low Warning</button>
+        <button class="warning" id = "drivebtn2" style="background-color:orange; visibility: hidden" onclick="javascript:playWarning2(); start2();">Medium Warning</button>
+        <button class="warning" id = "drivebtn3" style="background-color:red; visibility: hidden" onclick="javascript:playWarning3(); start3();">High Warning</button>
+    </div>
+-->
+    
+    </center>
+</body>
+
+<script src="generalScript.js"></script>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Settings Page</title>
+        <link href="style.css" rel="stylesheet">
+        <script defer src="generalScript.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<center>
+<body>
+    <div class = "title">
+        <h1>3DS</h1></div>
+    <h1 class = "page-subtitle">SETTINGS</h1>
+
+    <div><i style="font-size:48px;" data-modal-target="#modaladmin" class="material-icons">account_circle</i></div><br><br>
+    <div class="modal" id="modaladmin">
+        <div class="modal-header">
+            <div class="title">Admin Login</div>
+            <button data-close-button class="closebtn">&times;</button>
+        </div>
+        <div class="popup-body">
+            <br></br>
+            <form action="/login" method="post">
+                <label for="username">Username:</label>
+                <input type="text" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required><br><br>
+                <label id="error" style="color: red; visibility: hidden;">Wrong username or password, please try again! </label>
+                <input type="submit" class = "button2" style="text-align: center;"  value="Login" onclick="javascript:invalidLogin();">
+            </form>
+            
+        </div>
+    </div>
+
+    <div class="container">
+    <div>
+        <h class = "subsections">Adjust Volume</h>
+        <div class="slider">
+            <input type="range" name="volume" id="volume-slider" min="0" max = "100" step="1" value = "this.value" oninput="volume(this.value)" onchange="volume(this.value)"/> 
+            <!--output class="volume-output" for="volume"></output-->
+            <div class="sliderValue">50</div>
+            <!--button class = "button2" onclick="javascript:setVolume();">Submit</button-->
+        </div>
+    
+        
+    </div>
+    
+    <div>&nbsp;</div>
+
+    <!--
+    <div>
+        <h>Adjust Risk Level </h>
+        <div>
+            <button id="sbtn" onclick="javascript:playWarning1();" style="background-color:yellow";>Low</button> 
+            <button id="sbtn" onclick="javascript:playWarning2();" style="background-color:orange";>Medium</button>
+            <button id="sbtn" onclick="javascript:playWarning3();" style="background-color:red";>High</button>
+        </div>
+    </div>
+
+    <div>&nbsp;</div> 
+-->
+   
+    <div><br>
+        <h class = "subsections">Warning Duration</h>
+        <form action>
+            <input type="radio" id="5sec" name="time_duration" value="5" checked="checked">
+            <label class = "timer-options" for="html">5 Seconds</label><br>
+            <input type="radio" id="10sec" name="time_duration" value="10">
+            <label class = "timer-options" for="css">10 Seconds</label><br>
+            <input type="radio" id="20sec" name="time_duration" value="20">
+            <label class = "timer-options" for="javascript">20 Seconds</label>
+        </form>
+ 
+        <button class = "button2" onclick="javascript:setDuration();">Change Duration</button>
+    </div>
+</div>
+
+    
+    <div>&nbsp;</div><br>
+
+    <button onclick="location.href = '/index'" class="button1" >Back</button><br>
+
+    <a class = "agreement" data-modal-target="#modal">View Data Agreement</a>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Data Agreement</div>
+            <button data-close-button class="closebtn">&times;</button>
+        </div>
+        <div class="popup-body">
+            This agreement establishes the terms and conditions under which the Driver Drowsiness Model (DDM) can acquire and use data from the other party. Either party may be a provider of data to the other, or a recipient of data from the other.
+            The confidentiality of data pertaining to individuals will be protected as follows:
+                a). The data recipient will not release the names of individuals, or information that could be linked to an individual, nor will the recipient present the results of data analysis (including maps) in any manner that would reveal the identity of individuals.
+                b).	The data recipient will not release individual addresses, nor will the recipient present the results of data analysis (including maps) in any manner that would reveal individual addresses.
+                c).	Both parties shall comply with all Federal and State laws and regulations governing the confidentiality of the information that is the subject of this Agreement.
+
+        </div>
+    </div>
+    
+    <div  id="overlay"></div>
+
+
+</body>
+</center>
+
+<script src="generalScript.js"></script>
+
+</html>
