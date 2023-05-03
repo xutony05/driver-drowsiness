@@ -1,0 +1,22 @@
+.form-group{
+    min-width: 300px;
+    max-width: 300px;
+    display: table;
+    margin: 0 auto;
+}
+
+input {
+    width: 100%;
+}
+
+
+.suffix{
+    padding: 6px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 15px;
+    color: #555;
+    width: 1%;
+    vertical-align: bottom;
+    display: table-cell;
+}
