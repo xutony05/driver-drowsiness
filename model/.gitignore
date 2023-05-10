@@ -2,3 +2,5 @@
 /crop-eyes/yourfolderforcroppedeyes
 /**/*.h5
 /lib
+/Transformer/saved_models
+
