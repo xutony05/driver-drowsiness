@@ -3,4 +3,4 @@
 /**/*.h5
 /lib
 /Transformer/saved_models
-
+/Transformer/lightning_logs
