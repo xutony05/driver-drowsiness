@@ -1,3 +1,5 @@
+print("Running")
+
 from TimeSformer.timesformer.models.vit import TimeSformer
 
 model = TimeSformer(img_size=112, num_classes=3, num_frames=60, attention_type='divided_space_time', pretrained_model='../modelZoo/K400-96.pyth')
