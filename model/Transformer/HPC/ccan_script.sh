@@ -1,3 +1,5 @@
+echo 'Start!'
+
 #!/bin/bash
 #SBATCH --account=def-snikan
 #SBATCH --time=00:25:00
