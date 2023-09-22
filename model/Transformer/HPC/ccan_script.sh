@@ -1,8 +1,7 @@
-echo 'Start!'
-
 #!/bin/bash
 #SBATCH --account=def-snikan
 #SBATCH --time=00:25:00
+echo 'Start!'
 #SBARCH --n-task=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=4G
