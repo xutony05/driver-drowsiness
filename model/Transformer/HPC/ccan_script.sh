@@ -10,4 +10,4 @@
 
 source $HOME/timesformer/bin/activate
 
-python v5.0.1/py
+python v5.0.1.py
