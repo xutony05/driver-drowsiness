@@ -10,6 +10,6 @@
 
 module load python
 
-source $HOME/timesformer/bin/activate
+source ~/timesformer/bin/activate
 
 python v5.0.1.py
