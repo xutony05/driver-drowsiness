@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH -A def-snikan
-#SBATCH --time 0-00:25:00
+#SBATCH --account=def-snikan
+#SBATCH --time=00:25:00
 #SBARCH --n-task=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=4G
@@ -13,3 +13,5 @@ module load python
 source ~/timesformer/bin/activate
 
 python v5.0.1.py
+
+echo 'Hello, world!'
