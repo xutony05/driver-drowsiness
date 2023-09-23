@@ -3,8 +3,8 @@
 #SBATCH --time=1-00:00:00
 #SBARCH --n-task=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem-per-cpu=32G
-#SBATCH --gpus=a100:1
+#SBATCH --mem-per-cpu=16G
+#SBATCH --gpus=v100:1
 #SBATCH --mail-user=yxu783@uwo.ca
 #SBATCH --mail-type=FAIL
 
