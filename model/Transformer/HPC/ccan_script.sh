@@ -8,8 +8,6 @@
 #SBATCH --mail-user=yxu783@uwo.ca
 #SBATCH --mail-type=FAIL
 
-echo "Start!"
-
 module load python
 
 source ~/timesformer/bin/activate

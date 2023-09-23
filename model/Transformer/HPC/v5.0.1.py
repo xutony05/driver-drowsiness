@@ -1,8 +1,9 @@
-print("Running")
+print("Started")
 
 from TimeSformer.timesformer.models.vit import TimeSformer
 
 model = TimeSformer(img_size=112, num_classes=3, num_frames=60, attention_type='divided_space_time', pretrained_model='../modelZoo/K400-96.pyth')
+print("Model loaded")
 
 import torch
 import os
@@ -74,6 +75,7 @@ df = pd.read_csv("../../data/mirror-data.csv")
 df["Action"] = df["Action"].str.rstrip()
 df = df[df.Action != "Talking&Yawning"]
 df["label"] = df.Action.astype('category').cat.codes
+print("CSV loaded")
 
 i = 0
 dfTrain = pd.DataFrame()
@@ -91,6 +93,7 @@ frame_step = 24
 
 train_ds = VideoDataset(dfTrain, "../../data/YawDD/YawDD dataset/Mirror/all/", MAX_SEQ_LENGTH, frame_step)
 test_ds = VideoDataset(dfTest, "../../data/YawDD/YawDD dataset/Mirror/all/", MAX_SEQ_LENGTH, frame_step)
+print("Dataset loaded")
 
 from torch.utils.data import DataLoader
 
@@ -111,6 +114,7 @@ def accuracy(predictions, labels):
     classes = torch.argmax(predictions, dim=1)
     return torch.mean((classes == labels).float())
 
+print("Start training")
 for epoch in range(num_epochs):
     running_loss = 0.0
     running_acc = 0.0
