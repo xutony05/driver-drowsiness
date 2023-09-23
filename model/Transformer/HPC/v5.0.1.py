@@ -119,7 +119,6 @@ for epoch in range(num_epochs):
     running_loss = 0.0
     running_acc = 0.0
     for i, data in enumerate(train_loader, 0):
-        print(i)
         inputs, labels = data[0].to(device), data[1].to(device)
         optimizer.zero_grad()
         outputs = model(inputs)
