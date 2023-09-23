@@ -106,7 +106,7 @@ from torch import nn
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=1e-3)
 
-model.to(device)
+#model.to(device)
 
 num_epochs = 30
 
@@ -119,7 +119,8 @@ for epoch in range(num_epochs):
     running_loss = 0.0
     running_acc = 0.0
     for i, data in enumerate(train_loader, 0):
-        inputs, labels = data[0].to(device), data[1].to(device)
+        #inputs, labels = data[0].to(device), data[1].to(device)
+        inputs, labels = data[0], data[1]
         optimizer.zero_grad()
         outputs = model(inputs)
         loss = criterion(outputs, labels)
@@ -128,12 +129,13 @@ for epoch in range(num_epochs):
         running_loss += loss.item()
         running_acc += accuracy(outputs, labels)
         
-    # Evaluate on validation set
+    print("Evaluate on validation set")
     correct = 0
     total = 0
     with torch.no_grad():
         for data in val_loader:
-            inputs, labels = data[0].to(device), data[1].to(device)
+            #inputs, labels = data[0].to(device), data[1].to(device)
+            inputs, labels = data[0], data[1]
             outputs = model(inputs)
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
