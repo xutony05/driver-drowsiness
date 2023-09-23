@@ -2,7 +2,7 @@ print("Started")
 
 from TimeSformer.timesformer.models.vit import TimeSformer
 
-model = TimeSformer(img_size=224, num_classes=3, num_frames=120, attention_type='divided_space_time', pretrained_model='../modelZoo/K400-96.pyth')
+model = TimeSformer(img_size=112, num_classes=3, num_frames=120, attention_type='divided_space_time', pretrained_model='../modelZoo/K400-96.pyth')
 print("Model loaded")
 
 import torch
@@ -14,7 +14,7 @@ import numpy as np
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
 
-IMG_SIZE = 224
+IMG_SIZE = 112
 
 def frames_from_video_file(video_path, MAX_SEQ_LENGTH, frame_step, output_size = (IMG_SIZE, IMG_SIZE)):
     result = []
