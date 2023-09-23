@@ -97,8 +97,8 @@ print("Dataset loaded")
 
 from torch.utils.data import DataLoader
 
-train_loader = DataLoader(train_ds, batch_size=4)
-val_loader = DataLoader(test_ds, batch_size=4)
+train_loader = DataLoader(train_ds, batch_size=1)
+val_loader = DataLoader(test_ds, batch_size=1)
 
 
 import torch.optim as optim
