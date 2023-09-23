@@ -97,8 +97,8 @@ print("Dataset loaded")
 
 from torch.utils.data import DataLoader
 
-train_loader = DataLoader(train_ds, batch_size=1)
-val_loader = DataLoader(test_ds, batch_size=1)
+train_loader = DataLoader(train_ds, batch_size=16)
+val_loader = DataLoader(test_ds, batch_size=16)
 
 
 import torch.optim as optim
@@ -106,7 +106,7 @@ from torch import nn
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=1e-3)
 
-#model.to(device)
+model.to(device)
 
 num_epochs = 30
 
@@ -119,9 +119,8 @@ for epoch in range(num_epochs):
     running_loss = 0.0
     running_acc = 0.0
     for i, data in enumerate(train_loader, 0):
-        #inputs, labels = data[0].to(device), data[1].to(device)
         print(i)
-        inputs, labels = data[0], data[1]
+        inputs, labels = data[0].to(device), data[1].to(device)
         optimizer.zero_grad()
         outputs = model(inputs)
         loss = criterion(outputs, labels)
@@ -135,8 +134,7 @@ for epoch in range(num_epochs):
     total = 0
     with torch.no_grad():
         for data in val_loader:
-            #inputs, labels = data[0].to(device), data[1].to(device)
-            inputs, labels = data[0], data[1]
+            inputs, labels = data[0].to(device), data[1].to(device)
             outputs = model(inputs)
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
