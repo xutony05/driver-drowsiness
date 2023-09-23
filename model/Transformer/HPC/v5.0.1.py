@@ -120,6 +120,7 @@ for epoch in range(num_epochs):
     running_acc = 0.0
     for i, data in enumerate(train_loader, 0):
         #inputs, labels = data[0].to(device), data[1].to(device)
+        print(i)
         inputs, labels = data[0], data[1]
         optimizer.zero_grad()
         outputs = model(inputs)
