@@ -12,4 +12,4 @@ module load python
 
 source ~/timesformer/bin/activate
 
-python v5.0.1.py
+python -u v5.0.1.py
