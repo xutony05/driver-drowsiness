@@ -2,9 +2,9 @@
 #SBATCH --account=def-snikan
 #SBATCH --time=0-23:00:00
 #SBARCH --n-task=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=16G
-#SBATCH --gpus=v100:1
+#SBATCH --gpus=a100:1
 #SBATCH --mail-user=yxu783@uwo.ca
 #SBATCH --mail-type=FAIL
 
