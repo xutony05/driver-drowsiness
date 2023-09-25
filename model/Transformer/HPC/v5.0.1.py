@@ -2,7 +2,7 @@ print("Started")
 
 from TimeSformer.timesformer.models.vit import TimeSformer
 
-model = TimeSformer(img_size=224, num_classes=3, num_frames=60, attention_type='divided_space_time', pretrained_model='../modelZoo/K400-96.pyth')
+model = TimeSformer(img_size=224, num_classes=3, num_frames=120, attention_type='divided_space_time', pretrained_model='../modelZoo/K400-96.pyth')
 print("Model loaded")
 
 import torch
@@ -88,8 +88,8 @@ while i<len(df):
         dfTrain = pd.concat([dfTrain, df.iloc[[i]]])
     i+=1
 
-MAX_SEQ_LENGTH = 60
-frame_step = 24
+MAX_SEQ_LENGTH = 120
+frame_step = 12
 
 train_ds = VideoDataset(dfTrain, "../../data/YawDD/YawDD dataset/Mirror/all/", MAX_SEQ_LENGTH, frame_step)
 test_ds = VideoDataset(dfTest, "../../data/YawDD/YawDD dataset/Mirror/all/", MAX_SEQ_LENGTH, frame_step)
@@ -144,4 +144,4 @@ for epoch in range(num_epochs):
           (epoch + 1, running_loss / len(train_loader), running_acc / len(train_loader), val_acc))
     
 print("Saving model")
-torch.save(model.state_dict(), "./savedModel/v60f_224.pt")
+torch.save(model.state_dict(), "./savedModel/v120f_224.pt")
