@@ -144,4 +144,4 @@ for epoch in range(num_epochs):
           (epoch + 1, running_loss / len(train_loader), running_acc / len(train_loader), val_acc))
     
 print("Saving model")
-torch.save(model.state_dict(), "./savedModel/v120f_224.pt")
+torch.save(model, "./savedModel/v120f_224.pth")
