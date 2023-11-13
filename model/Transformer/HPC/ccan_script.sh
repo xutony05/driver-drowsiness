@@ -9,8 +9,9 @@
 #SBATCH --mail-type=FAIL
 
 module load python
-module load scipy-stack 
 
 source ~/myenv/bin/activate
+
+module load scipy-stack 
 
 python -u v5.0.1.py
