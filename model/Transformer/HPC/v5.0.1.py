@@ -2,7 +2,7 @@ print("Started")
 
 from TimeSformer.timesformer.models.vit import TimeSformer
 
-model = TimeSformer(img_size=16, num_classes=3, num_frames=12, attention_type='divided_space_time', pretrained_model='../modelZoo/K400-96.pyth')
+model = TimeSformer(img_size=224, num_classes=3, num_frames=120, attention_type='divided_space_time', pretrained_model='../modelZoo/K400-96.pyth')
 print("Model loaded")
 
 import torch
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
 
-IMG_SIZE = 16
+IMG_SIZE = 224
 
 def frames_from_video_file(video_path, MAX_SEQ_LENGTH, frame_step, output_size = (IMG_SIZE, IMG_SIZE)):
     result = []
@@ -91,8 +91,8 @@ while i<len(df):
         dfTrain = pd.concat([dfTrain, df.iloc[[i]]])
     i+=1
 
-MAX_SEQ_LENGTH = 12
-frame_step = 1
+MAX_SEQ_LENGTH = 120
+frame_step = 12
 
 train_ds = VideoDataset(dfTrain, "../../data/YawDD/YawDD dataset/Mirror/all/", MAX_SEQ_LENGTH, frame_step)
 test_ds = VideoDataset(dfTest, "../../data/YawDD/YawDD dataset/Mirror/all/", MAX_SEQ_LENGTH, frame_step)
