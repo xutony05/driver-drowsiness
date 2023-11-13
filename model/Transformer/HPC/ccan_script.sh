@@ -8,7 +8,8 @@
 #SBATCH --mail-user=yxu783@uwo.ca
 #SBATCH --mail-type=FAIL
 
-module load python/3.8
+module load python
+module load scipy-stack 
 
 source ~/myenv/bin/activate
 
