@@ -10,6 +10,7 @@ import os
 import cv2
 import random
 import numpy as np
+import matplotlib.pyplot as plt
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
@@ -108,7 +109,9 @@ optimizer = optim.Adam(model.parameters(), lr=1e-3)
 
 model.to(device)
 
-num_epochs = 30
+num_epochs = 3
+train_accuracies = []
+val_accuracies = []
 
 def accuracy(predictions, labels):
     classes = torch.argmax(predictions, dim=1)
@@ -127,6 +130,9 @@ for epoch in range(num_epochs):
         optimizer.step()
         running_loss += loss.item()
         running_acc += accuracy(outputs, labels)
+
+    train_acc_epoch = 100 * running_acc / len(train_loader)
+    train_accuracies.append(train_acc_epoch)
         
     print("Evaluate on validation set")
     correct = 0
@@ -139,9 +145,23 @@ for epoch in range(num_epochs):
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
     val_acc = 100 * correct / total
+    val_accuracies.append(val_acc)
     
     print('[%d] loss: %.3f, train_Acc: %.3f, val_acc: %.3f' %
-          (epoch + 1, running_loss / len(train_loader), running_acc / len(train_loader), val_acc))
-    
+          (epoch + 1, running_loss / len(train_loader), train_acc_epoch, val_acc))
+
+import torch
+import matplotlib.pyplot as plt
+
+# Plotting
+epochs_range = range(1, num_epochs + 1)
+plt.plot(epochs_range, [acc.cpu().numpy() for acc in train_accuracies], label='Training Accuracy', marker='o')
+plt.plot(epochs_range, val_accuracies, label='Validation Accuracy', marker='o')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.title('Training and Validation Accuracy')
+plt.legend()
+plt.savefig('accuracy_plot.jpeg')
+
 print("Saving model")
 torch.save(model, "./savedModel/v120f_224.pth")
